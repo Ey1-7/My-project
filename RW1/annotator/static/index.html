@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>岩芯碎裂标注</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <label>钻孔</label>
+      <select id="holeSelect"></select>
+      <button type="button" id="btnPrev">上一张</button>
+      <button type="button" id="btnNext">下一张</button>
+      <span id="navInfo"></span>
+      <button type="button" class="primary" id="btnSave">保存</button>
+      <span class="status" id="status"></span>
+    </header>
+    <div class="main">
+      <aside class="sidebar">
+        <h3>模式</h3>
+        <button type="button" class="mode active" data-mode="nav">浏览 / 缩放</button>
+        <button type="button" class="mode" data-mode="rect">框选 ROI</button>
+        <button type="button" class="mode" data-mode="measure">折线测距</button>
+        <h3>ROI 证据类型</h3>
+        <select id="evidenceSelect"></select>
+        <button type="button" id="btnFinishMeasure" disabled>完成本次测距</button>
+        <button type="button" id="btnClearDraft">清除当前草稿</button>
+        <div class="help">
+          <p><strong>浏览</strong>：滚轮缩放；拖动平移。</p>
+          <p><strong>ROI</strong>：按下拖拽矩形；保存写入 JSON。</p>
+          <p><strong>测距</strong>：单击加点，点≥2 后可「完成本次测距」。</p>
+        </div>
+      </aside>
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="board"></canvas>
+      </div>
+      <aside class="panel-right">
+        <h3>整图结论</h3>
+        <div class="tag-row" id="labelButtons"></div>
+        <h3>ROI 列表</h3>
+        <div id="regionList"></div>
+        <h3>测距列表</h3>
+        <div id="measureList"></div>
+        <h3>备注</h3>
+        <textarea id="notes" placeholder="可选"></textarea>
+        <h3>标注员</h3>
+        <input type="text" id="annotator" placeholder="可选" />
+      </aside>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
